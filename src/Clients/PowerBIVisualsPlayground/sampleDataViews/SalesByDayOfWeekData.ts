@@ -39,7 +39,8 @@ module powerbi.visuals.sampleDataViews {
             'dataDotStackedColumnComboChart',
             'lineStackedColumnComboChart',
             'lineClusteredColumnComboChart',
-            'asterPlot'
+            'asterPlot',
+            'tableHeatMap'
         ];
         
         private sampleData1 = [
