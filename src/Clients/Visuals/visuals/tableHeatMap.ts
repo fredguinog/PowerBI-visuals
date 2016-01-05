@@ -186,7 +186,7 @@ module powerbi.visuals {
                     if (catMetaData.columns[j].isMeasure) {
                         var value = catTable.rows[i][j];
                         var valueStr;
-                        if (value) {
+                        if (value !== undefined) {
                             categoryY = catY[j] = catMetaData.columns[j].displayName;
                             if (catMetaData.columns[j].groupName) {
                                 categoryY += ": " + catMetaData.columns[j].groupName;
@@ -234,11 +234,9 @@ module powerbi.visuals {
 
         public update(options: VisualUpdateOptions): void {
             if (!options.dataViews || !options.dataViews[0]) return;
+            this.svg.selectAll("*").remove();
 
-            d3.selectAll(".svgTableHeatMap > *").remove();
-
-            this.mainGraphics = this.svg.append("g");
-			
+            this.mainGraphics = this.svg;
 			this.setSize(options.viewport);            
 
             this.updateInternal(options);
@@ -268,7 +266,13 @@ module powerbi.visuals {
                     .range(colors);
                 
                 var gridSizeWidth = Math.floor(this.viewport.width / (chartData.categoryX.length + 1));
-                gridSizeWidth = gridSizeWidth > 80 ? 80 : gridSizeWidth;
+                if (gridSizeWidth < 40) {
+                    gridSizeWidth = 40;
+                } else if (gridSizeWidth > 80)
+                {
+                    gridSizeWidth = 80;
+                }
+
                 var gridSizeHeight = gridSizeWidth / 2;
 
                 var legendElementWidth = gridSizeWidth / 1.5;
@@ -488,5 +492,4 @@ module powerbi.visuals {
         }
     }
 }
-
 

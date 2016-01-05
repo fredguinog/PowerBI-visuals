@@ -292,4 +292,11 @@ module powerbi.visuals.plugins {
         capabilities: capabilities.kpi,
         create: () => new KPIStatusWithHistory()
     };
+
+    export let tableHeatmap: IVisualPlugin = {
+        name: 'tableHeatmap',
+        watermarkKey: 'tableheatmap',
+        //capabilities: capabilities.,
+        create: () => new TableHeatMap()
+    };
 }

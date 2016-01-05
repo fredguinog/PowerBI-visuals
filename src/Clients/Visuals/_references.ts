@@ -175,6 +175,7 @@
 /// <reference path="visuals/gauge.ts"/>
 /// <reference path="visuals/imageVisual.ts"/>
 /// <reference path="visuals/kpiStatusWithHistory.ts"/>
+/// <reference path="visuals/tableHeatMap.ts"/>
 /// <reference path="iVisualStyle.ts"/>
 
 /// <reference path="cartesian/lineChart.ts"/>
