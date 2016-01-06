@@ -275,7 +275,7 @@ module powerbi.visuals {
 
                 var gridSizeHeight = gridSizeWidth / 2;
 
-                var legendElementWidth = gridSizeWidth / 1.5;
+                var legendElementWidth = gridSizeWidth;
                 var legendElementHeight = gridSizeHeight / 2;
 
                 var xOffset = gridSizeWidth + this.margin.left;
